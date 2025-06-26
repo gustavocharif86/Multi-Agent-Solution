@@ -48,8 +48,19 @@ class AgentType(str, Enum):
     TECH_SUPPORT = "Tech_Support_Agent"
     GROUP_CHAT_MANAGER = "Group_Chat_Manager"
     PLANNER = "Planner_Agent"
-
-    # Add other agents as needed
+    
+    # AI-Native SDLC Agents
+    PRODUCT_DISCOVERY = "Product_Discovery_Agent"
+    ARCHITECTURE = "Architecture_Agent"
+    CODE_GENERATION = "Code_Generation_Agent"
+    CODE_REVIEW = "Code_Review_Agent"
+    TEST_GENERATION = "Test_Generation_Agent"
+    PIPELINE = "Pipeline_Agent"
+    INFRA_PROVISIONING = "Infra_Provisioning_Agent"
+    DEPLOY_STRATEGY = "Deploy_Strategy_Agent"
+    FEEDBACK = "Feedback_Agent"
+    ROADMAP_ADJUSTMENT = "Roadmap_Adjustment_Agent"
+    EXPLAINABILITY = "Explainability_Agent"
 
 
 class StepStatus(str, Enum):

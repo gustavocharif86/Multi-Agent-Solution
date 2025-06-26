@@ -20,6 +20,9 @@ from kernel_agents.planner_agent import PlannerAgent  # Add PlannerAgent import
 from kernel_agents.procurement_agent import ProcurementAgent
 from kernel_agents.product_agent import ProductAgent
 from kernel_agents.tech_support_agent import TechSupportAgent
+# Import new AI-Native SDLC agents
+from kernel_agents.product_discovery_agent import ProductDiscoveryAgent
+from kernel_agents.architecture_agent import ArchitectureAgent
 from models.messages_kernel import AgentType, PlannerResponsePlan
 # pylint:disable=E0611
 from semantic_kernel.agents.azure_ai.azure_ai_agent import AzureAIAgent
@@ -41,6 +44,9 @@ class AgentFactory:
         AgentType.HUMAN: HumanAgent,
         AgentType.PLANNER: PlannerAgent,
         AgentType.GROUP_CHAT_MANAGER: GroupChatManager,  # Add GroupChatManager
+        # AI-Native SDLC Agents
+        AgentType.PRODUCT_DISCOVERY: ProductDiscoveryAgent,
+        AgentType.ARCHITECTURE: ArchitectureAgent,
     }
 
     # Mapping of agent types to their string identifiers (for automatic tool loading)
@@ -54,6 +60,9 @@ class AgentFactory:
         AgentType.HUMAN: AgentType.HUMAN.value,
         AgentType.PLANNER: AgentType.PLANNER.value,
         AgentType.GROUP_CHAT_MANAGER: AgentType.GROUP_CHAT_MANAGER.value,
+        # AI-Native SDLC Agents
+        AgentType.PRODUCT_DISCOVERY: AgentType.PRODUCT_DISCOVERY.value,
+        AgentType.ARCHITECTURE: AgentType.ARCHITECTURE.value,
     }
 
     # System messages for each agent type
@@ -67,6 +76,9 @@ class AgentFactory:
         AgentType.HUMAN: HumanAgent.default_system_message(),
         AgentType.PLANNER: PlannerAgent.default_system_message(),
         AgentType.GROUP_CHAT_MANAGER: GroupChatManager.default_system_message(),
+        # AI-Native SDLC Agents
+        AgentType.PRODUCT_DISCOVERY: ProductDiscoveryAgent.default_system_message(),
+        AgentType.ARCHITECTURE: ArchitectureAgent.default_system_message(),
     }
 
     # Cache of agent instances by session_id and agent_type

@@ -14,6 +14,9 @@ from kernel_tools.marketing_tools import MarketingTools
 from kernel_tools.procurement_tools import ProcurementTools
 from kernel_tools.product_tools import ProductTools
 from kernel_tools.tech_support_tools import TechSupportTools
+# Import new AI-Native SDLC agent tools
+from kernel_tools.product_discovery_tools import ProductDiscoveryTools
+from kernel_tools.architecture_tools import ArchitectureTools
 from models.messages_kernel import (
     AgentMessage,
     AgentType,
@@ -90,6 +93,9 @@ class PlannerAgent(BaseAgent):
             AgentType.PROCUREMENT.value,
             AgentType.TECH_SUPPORT.value,
             AgentType.GENERIC.value,
+            # AI-Native SDLC Agents
+            AgentType.PRODUCT_DISCOVERY.value,
+            AgentType.ARCHITECTURE.value,
         ]
         self._agent_tools_list = {
             AgentType.HR: HrTools.generate_tools_json_doc(),
@@ -98,6 +104,9 @@ class PlannerAgent(BaseAgent):
             AgentType.PROCUREMENT: ProcurementTools.generate_tools_json_doc(),
             AgentType.TECH_SUPPORT: TechSupportTools.generate_tools_json_doc(),
             AgentType.GENERIC: GenericTools.generate_tools_json_doc(),
+            # AI-Native SDLC Agents
+            AgentType.PRODUCT_DISCOVERY: ProductDiscoveryTools.generate_tools_json_doc(),
+            AgentType.ARCHITECTURE: ArchitectureTools.generate_tools_json_doc(),
         }
 
         self._agent_instances = agent_instances or {}
